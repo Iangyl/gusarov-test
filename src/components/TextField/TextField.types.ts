@@ -1,17 +1,22 @@
 type Size = 'xs' | 'm' | 'l' | 'xl';
 type LabelPosition = 'inline-left' | 'above' | 'auto';
-type PropsToOmit = 'size' | 'label' | 'type';
 
-type CustomHTMLInput = Omit<HTMLInputElement, PropsToOmit>;
-
-export interface ITextField extends CustomHTMLInput {
+export interface ITextField {
+  id: string;
+  name: string;
   size?: Size;
   label?: string;
   labelPosition?: LabelPosition;
-  onChange?: (event: React.ChangeEvent) => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
-  tip?: string; // string but in the future we could make possibility to make custom tip
+  tip?: string;
   iconBefore?: any;
   iconAfter?: any;
   helpText?: string;
+  placeholder?: string;
+  required?: boolean;
+  value?: string;
+  className?: string;
+  dir?: string;
+  disabled?: boolean;
 }
