@@ -19,4 +19,5 @@ export interface ITextField {
   className?: string;
   dir?: string;
   disabled?: boolean;
+  outline?: boolean;
 }
