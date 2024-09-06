@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { ITextField } from './TextField.types';
 import { textFieldStyleConfig } from './index.config';
-import { useMemo } from 'react';
 import { InputContainer } from '../../atoms';
 import LabelContainer from '../../atoms/LabelContainer/LabelContainer';
 
@@ -12,6 +11,7 @@ const TextField = ({
   placeholder,
   required,
   onChange,
+  hint,
   value,
   label,
   disabled,
@@ -27,8 +27,10 @@ const TextField = ({
       label={label}
       labelPosition={labelPosition}
       required={required}
+      disabled={disabled}
       size={size}
       tip={tip}
+      hint={hint}
     >
       <InputContainer size={size} dir={dir} outline={outline}>
         <input
@@ -42,6 +44,7 @@ const TextField = ({
           className={classNames(
             textFieldStyleConfig.font[size],
             textFieldStyleConfig.textfield.size[size],
+            disabled && 'cursor-not-allowed',
             customClass
           )}
           required={required}

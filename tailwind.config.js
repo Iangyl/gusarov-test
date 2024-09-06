@@ -4,9 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        "snowflake-silk": "var(--snowflake-silk-col)",
-        "smokey-slate": "var(--smokey-slate-col)",
-      }
+        'snowflake-silk': 'var(--snowflake-silk-col)',
+        'smokey-slate': 'var(--smokey-slate-col)',
+        'sunset-ember': 'var(--sunset-ember-col)',
+        'midnight-ink': 'var(--midnight-ink-col)',
+        'moonlit-charcoal': 'var(--moonlit-charcoal-col)',
+      },
     },
   },
   plugins: [],

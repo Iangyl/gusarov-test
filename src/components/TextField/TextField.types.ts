@@ -11,7 +11,7 @@ export interface ITextField {
   tip?: string;
   iconBefore?: any;
   iconAfter?: any;
-  helpText?: string;
+  hint?: string;
   placeholder?: string;
   required?: boolean;
   value?: string;

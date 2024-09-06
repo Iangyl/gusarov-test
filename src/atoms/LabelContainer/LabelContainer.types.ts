@@ -5,8 +5,10 @@ export interface ILabelContainer {
   id: string;
   size?: Size;
   tip?: string;
+  hint?: string;
   label?: string;
   required?: boolean;
+  disabled?: boolean;
   children: ReactNode;
   labelPosition?: LabelPosition;
 }

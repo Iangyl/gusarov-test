@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,9 +7,42 @@
 @layer base {
   :root {
     /* # Colors */
-  
+
     --snowflake-silk-col: #D1D1D6;
     --smokey-slate-col: #70707B;
+    --sunset-ember-col: #D92D20;
+    --midnight-ink-col: #1A1A1E;
+    --moonlit-charcoal-col: #51525C;
+  }
+
+  * {
+    font-family: "Inter", san-serif;
+  }
+
+  input {
+    outline: none;
+    color: var(--midnight-ink-col);
+  }
+
+  input::placeholder {
+    color: var(--smokey-slate-col);
+  }
+
+  input:disabled {
+    color: var(--snowflake-silk-col);
+    background-color: white;
+  }
+
+  input::placeholder:disabled {
+    color: var(--snowflake-silk-col);
+  }
+}
+
+@layer components {
+  /* label container */
+
+  .label-container {
+    @apply w-[240px];
   }
 }
 
@@ -22,11 +57,11 @@
 
   /* textfield */
   .textfield_size_xs {
-    @apply w-[216px] h-5;
+    @apply w-full h-5;
   }
 
   .textfield_size_sm {
-    @apply w-[212px] h-6;
+    @apply w-full h-6;
   }
 
   /* input container */

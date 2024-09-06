@@ -6,8 +6,10 @@ import classNames from 'classnames';
 const LabelContainer = ({
   id,
   tip,
+  hint,
   label,
   required,
+  disabled,
   children,
   size = 'm',
   labelPosition = 'above',
@@ -15,6 +17,7 @@ const LabelContainer = ({
   return (
     <div
       className={classNames(
+        'label-container',
         labelPosition === 'inline-left'
           ? 'flex justify-between items-center'
           : ''
@@ -22,14 +25,30 @@ const LabelContainer = ({
     >
       <div className={classNames('flex items-center gap-1')}>
         <label
-          className={classNames('font-medium', fontSize[size])}
+          className={classNames(
+            'font-medium',
+            fontSize[size],
+            !disabled ? 'text-midnight-ink' : 'text-smokey-slate',
+            'break-words whitespace-pre-wrap'
+          )}
           htmlFor={id}
         >
           {label}
+          {required && <span className="text-sunset-ember"> *</span>}
         </label>
-        {tip && <Tip />}
+        {tip && <Tip className="cursor-pointer" />}
       </div>
       {children}
+      {hint && (
+        <p
+          className={classNames(
+            !disabled ? 'text-moonlit-charcoal' : 'text-snowflake-silk',
+            'font_size_xs mt-1 break-words whitespace-pre-wrap'
+          )}
+        >
+          {hint}
+        </p>
+      )}
     </div>
   );
 };
