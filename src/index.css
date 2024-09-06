@@ -2,11 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
+  :root {
+    /* # Colors */
+  
+    --snowflake-silk-col: #D1D1D6;
+    --smokey-slate-col: #70707B;
+  }
+}
+
+@layer utilities {
   .font_size_xs {
     @apply text-xs leading-5;
   }
+
   .font_size_sm {
     @apply text-sm leading-6;
+  }
+
+  /* textfield */
+  .textfield_size_xs {
+    @apply w-[216px] h-5;
+  }
+
+  .textfield_size_sm {
+    @apply w-[212px] h-6;
+  }
+
+  /* input container */
+  .input-container_size_xs {
+    @apply py-0.5 px-3;
+  }
+
+  .input-container_size_m {
+    @apply py-2 px-3;
+  }
+
+  .input-container_size_l {
+    @apply py-2;
+  }
+
+  .input-container_size_xl {
+    @apply py-3;
+  }
+
+  .input-container_size_l-xl_dir_ltr {
+    @apply pr-3 pl-4;
+  }
+
+  .input-container_size_l-xl_dir_rtl {
+    @apply pr-4 pl-3;
   }
 }

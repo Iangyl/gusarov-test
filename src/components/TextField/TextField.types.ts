@@ -1,5 +1,4 @@
-type Size = 'xs' | 'm' | 'l' | 'xl';
-type LabelPosition = 'inline-left' | 'above' | 'auto';
+import { Direction, LabelPosition, Size } from '../../interfaces/atoms';
 
 export interface ITextField {
   id: string;
@@ -17,7 +16,7 @@ export interface ITextField {
   required?: boolean;
   value?: string;
   className?: string;
-  dir?: string;
+  dir?: Direction;
   disabled?: boolean;
   outline?: boolean;
 }

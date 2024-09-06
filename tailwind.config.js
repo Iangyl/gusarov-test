@@ -2,7 +2,12 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "snowflake-silk": "var(--snowflake-silk-col)",
+        "smokey-slate": "var(--smokey-slate-col)",
+      }
+    },
   },
   plugins: [],
 };
