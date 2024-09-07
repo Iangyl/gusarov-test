@@ -10,9 +10,16 @@
 
     --snowflake-silk-col: #D1D1D6;
     --smokey-slate-col: #70707B;
-    --sunset-ember-col: #D92D20;
     --midnight-ink-col: #1A1A1E;
     --moonlit-charcoal-col: #51525C;
+    --sunset-ember-col: #D92D20;
+    --peach-blossom-col: #FDA29B;
+    --ruby-red-col: #F044383D;
+    --sky-blue-col: #84CAFF;
+    --ocean-breeze-col: #2E90FA3D;
+
+    --error-shadow: 0px 0px 0px 4px var(--ruby-red-col);
+    --default-shadow: 0px 0px 0px 4px var(--ocean-breeze-col);
   }
 
   * {
@@ -87,5 +94,13 @@
 
   .input-container_size_l-xl_dir_rtl {
     @apply pr-4 pl-3;
+  }
+
+  .input-container_shadow-color_default {
+    @apply shadow-focus-ring shadow-ocean-breeze;
+  }
+
+  .input-container_shadow-color_error {
+    @apply shadow-focus-ring shadow-ruby-red;
   }
 }

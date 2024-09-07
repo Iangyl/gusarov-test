@@ -3,8 +3,10 @@ import { IInputContainer } from './InputContainer.types';
 import classNames from 'classnames';
 
 const InputContainer = ({
+  error,
   children,
   className,
+  isFocused,
   size = 'm',
   dir = 'ltr',
   outline = true,
@@ -21,6 +23,14 @@ const InputContainer = ({
         return `input-container_size_xl ${dir === 'ltr' ? 'input-container_size_l-xl_dir_ltr' : 'input-container_size_l-xl_dir_rtl'}`;
     }
   }, [dir, size]);
+
+  const getFocusStyles = useCallback(() => {
+    if (error) {
+      return 'border-peach-blossom input-container_shadow-color_error';
+    } else {
+      return 'border-sky-blue input-container_shadow-color_default';
+    }
+  }, [isFocused]);
   return (
     <div
       className={classNames(
@@ -29,6 +39,8 @@ const InputContainer = ({
         'rounded',
         'bg-white',
         outline ? 'border-snowflake-silk' : 'border-transparent',
+        error && 'border-sunset-ember',
+        isFocused && getFocusStyles(),
         className
       )}
     >

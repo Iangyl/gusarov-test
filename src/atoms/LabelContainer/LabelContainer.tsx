@@ -8,6 +8,7 @@ const LabelContainer = ({
   tip,
   hint,
   label,
+  error,
   required,
   disabled,
   children,
@@ -39,14 +40,15 @@ const LabelContainer = ({
         {tip && <Tip className="cursor-pointer" />}
       </div>
       {children}
-      {hint && (
+      {(hint || error) && (
         <p
           className={classNames(
             !disabled ? 'text-moonlit-charcoal' : 'text-snowflake-silk',
+            error && 'text-sunset-ember',
             'font_size_xs mt-1 break-words whitespace-pre-wrap'
           )}
         >
-          {hint}
+          {error || hint}
         </p>
       )}
     </div>

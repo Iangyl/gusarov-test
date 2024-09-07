@@ -6,6 +6,7 @@ export interface ILabelContainer {
   size?: Size;
   tip?: string;
   hint?: string;
+  error?: string;
   label?: string;
   required?: boolean;
   disabled?: boolean;

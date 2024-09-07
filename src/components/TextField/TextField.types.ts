@@ -7,7 +7,7 @@ export interface ITextField {
   label?: string;
   labelPosition?: LabelPosition;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  errorMessage?: string;
+  error?: string;
   tip?: string;
   iconBefore?: any;
   iconAfter?: any;

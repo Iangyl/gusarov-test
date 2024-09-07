@@ -3,6 +3,7 @@ import { ITextField } from './TextField.types';
 import { textFieldStyleConfig } from './index.config';
 import { InputContainer } from '../../atoms';
 import LabelContainer from '../../atoms/LabelContainer/LabelContainer';
+import { useMemo, useState } from 'react';
 
 const TextField = ({
   id,
@@ -14,6 +15,7 @@ const TextField = ({
   hint,
   value,
   label,
+  error,
   disabled,
   size = 'm',
   dir = 'ltr',
@@ -21,6 +23,15 @@ const TextField = ({
   labelPosition = 'above',
   className: customClass,
 }: ITextField) => {
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const isError = useMemo(
+    () => (error && error?.length > 1 ? true : false),
+    [error]
+  );
+
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
+
   return (
     <LabelContainer
       id={id}
@@ -31,8 +42,15 @@ const TextField = ({
       size={size}
       tip={tip}
       hint={hint}
+      error={error}
     >
-      <InputContainer size={size} dir={dir} outline={outline}>
+      <InputContainer
+        size={size}
+        dir={dir}
+        outline={outline}
+        error={isError}
+        isFocused={isFocused}
+      >
         <input
           id={id}
           name={name}
@@ -40,6 +58,8 @@ const TextField = ({
           placeholder={placeholder}
           dir={dir}
           onChange={onChange}
+          onBlur={handleBlur}
+          onFocus={handleFocus}
           value={value}
           className={classNames(
             textFieldStyleConfig.font[size],

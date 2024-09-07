@@ -6,10 +6,17 @@ export default {
       colors: {
         'snowflake-silk': 'var(--snowflake-silk-col)',
         'smokey-slate': 'var(--smokey-slate-col)',
-        'sunset-ember': 'var(--sunset-ember-col)',
-        'midnight-ink': 'var(--midnight-ink-col)',
         'moonlit-charcoal': 'var(--moonlit-charcoal-col)',
+        'midnight-ink': 'var(--midnight-ink-col)',
+        'sunset-ember': 'var(--sunset-ember-col)',
+        'peach-blossom': 'var(--peach-blossom-col)',
+        'ruby-red': 'var(--ruby-red-col)',
+        'sky-blue': 'var(--sky-blue-col)',
+        'ocean-breeze': 'var(--ocean-breeze-col)',
       },
+      boxShadow: {
+        'focus-ring': '0px 0px 0px 4px',
+      }
     },
   },
   plugins: [],
