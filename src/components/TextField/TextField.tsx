@@ -26,49 +26,53 @@ const TextField = ({
   className: customClass,
 }: ITextField) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [displayValue, setDisplayValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [truncatedPlaceholder, setTruncatedPlaceholder] = useState(placeholder);
 
-  const textTruncate = () => {
-    if (inputRef.current) {
-      const inputElement = inputRef.current;
+  useEffect(() => {
+    const truncatePlaceholder = () => {
+      if (!placeholder) return placeholder;
 
-      const measureText = (text: string) => {
-        const span = document.createElement('span');
-        span.style.visibility = 'hidden';
-        span.style.whiteSpace = 'nowrap';
-        span.style.position = 'absolute';
-        span.style.font = window.getComputedStyle(inputElement).font || '';
-        span.textContent = text;
-        document.body.appendChild(span);
-        const width = span.offsetWidth;
-        document.body.removeChild(span);
-        return width;
-      };
-
-      const truncateText = (text?: string) => {
-        if (!text) return text;
-
+      if (inputRef.current) {
+        const inputElement = inputRef.current;
         const inputWidth = inputElement.offsetWidth;
-        let truncatedText = text;
+
+        const measureText = (text: string) => {
+          const span = document.createElement('span');
+          span.style.visibility = 'hidden';
+          span.style.whiteSpace = 'nowrap';
+          span.style.position = 'absolute';
+          span.style.font = window.getComputedStyle(inputElement).font || '';
+          span.textContent = text;
+          document.body.appendChild(span);
+          const width = span.offsetWidth;
+          document.body.removeChild(span);
+          return width;
+        };
+
+        let truncatedText = placeholder;
         while (
           truncatedText.length > 0 &&
           measureText(truncatedText + '...') > inputWidth
         ) {
           truncatedText = truncatedText.slice(0, -1);
         }
-        return truncatedText.length < text.length
-          ? truncatedText + '...'
-          : truncatedText;
-      };
 
-      setDisplayValue(truncateText(value));
-    }
-  };
+        setTruncatedPlaceholder(
+          truncatedText.length < placeholder.length
+            ? truncatedText + '...'
+            : truncatedText
+        );
+      }
+    };
 
-  useEffect(() => {
-    textTruncate();
-  }, [value]);
+    truncatePlaceholder();
+
+    const handleResize = () => truncatePlaceholder();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [placeholder]);
 
   const isError = useMemo(
     () => (error && error?.length > 1 ? true : false),
@@ -104,12 +108,12 @@ const TextField = ({
           ref={inputRef}
           name={name}
           type="text"
-          placeholder={placeholder}
+          placeholder={truncatedPlaceholder}
           dir={dir}
           onChange={onChange}
           onBlur={handleBlur}
           onFocus={handleFocus}
-          value={displayValue}
+          value={value}
           className={classNames(
             textFieldStyleConfig.font[size],
             textFieldStyleConfig.textfield.size[size],
