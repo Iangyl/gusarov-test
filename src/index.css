@@ -11,6 +11,7 @@
     --snowflake-silk-col: #D1D1D6;
     --smokey-slate-col: #70707B;
     --midnight-ink-col: #1A1A1E;
+    --midnight-moss-col: #131316;
     --moonlit-charcoal-col: #51525C;
     --sunset-ember-col: #D92D20;
     --peach-blossom-col: #FDA29B;
@@ -50,6 +51,15 @@
 
   .label-container {
     @apply w-[240px];
+  }
+
+  .tooltip__after::after {
+    position: absolute;
+    @apply bg-midnight-moss;
+    width: 12px;
+    height: 12px;
+    content: '';
+    transform: rotate(45deg);
   }
 }
 
@@ -102,5 +112,52 @@
 
   .input-container_shadow-color_error {
     @apply shadow-focus-ring shadow-ruby-red;
+  }
+
+  /* tooltip */
+
+  .tooltip__after_pos_left::after {
+    @apply bg-midnight-moss;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    content: '';
+    top: 50%;
+    left: -4px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .tooltip__after_pos_right::after {
+    @apply bg-midnight-moss;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    content: '';
+    transform: rotate(45deg);
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .tooltip__after_pos_top::after {
+    @apply bg-midnight-moss;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    content: '';
+    left: 50%;
+    top: -4px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .tooltip__after_pos_bottom::after {
+    @apply bg-midnight-moss;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    content: '';
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%) rotate(45deg);
   }
 }

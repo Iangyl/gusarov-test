@@ -8,6 +8,7 @@ export default {
         'smokey-slate': 'var(--smokey-slate-col)',
         'moonlit-charcoal': 'var(--moonlit-charcoal-col)',
         'midnight-ink': 'var(--midnight-ink-col)',
+        'midnight-moss': 'var(--midnight-moss-col)',
         'sunset-ember': 'var(--sunset-ember-col)',
         'peach-blossom': 'var(--peach-blossom-col)',
         'ruby-red': 'var(--ruby-red-col)',

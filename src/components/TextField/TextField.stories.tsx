@@ -1,8 +1,6 @@
 import TextField from './TextField';
 import { fn } from '@storybook/test';
 import { Question, Search } from '../../assets';
-import { ITextField } from './TextField.types';
-import { useState } from 'react';
 
 export default {
   title: 'Example/TextField',

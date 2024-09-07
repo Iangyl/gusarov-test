@@ -36,7 +36,7 @@ const InputContainer = ({
   return (
     <div
       className={classNames(
-        'flex items-center gap-2',
+        'flex items-center gap-2 min-w-16',
         getStyles(),
         'border',
         'rounded',
