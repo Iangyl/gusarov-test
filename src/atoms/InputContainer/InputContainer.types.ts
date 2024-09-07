@@ -8,4 +8,6 @@ export interface IInputContainer {
   className?: string;
   isFocused?: boolean;
   children: React.ReactNode;
+  iconAfter?: React.ReactNode;
+  iconBefore?: React.ReactNode;
 }

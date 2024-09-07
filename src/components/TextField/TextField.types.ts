@@ -9,8 +9,8 @@ export interface ITextField {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   tip?: string;
-  iconBefore?: any;
-  iconAfter?: any;
+  iconBefore?: React.ReactNode;
+  iconAfter?: React.ReactNode;
   hint?: string;
   placeholder?: string;
   required?: boolean;

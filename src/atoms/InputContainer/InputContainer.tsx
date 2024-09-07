@@ -7,6 +7,8 @@ const InputContainer = ({
   children,
   className,
   isFocused,
+  iconAfter,
+  iconBefore,
   size = 'm',
   dir = 'ltr',
   outline = true,
@@ -34,6 +36,7 @@ const InputContainer = ({
   return (
     <div
       className={classNames(
+        'flex items-center gap-2',
         getStyles(),
         'border',
         'rounded',
@@ -44,7 +47,9 @@ const InputContainer = ({
         className
       )}
     >
+      {iconBefore}
       {children}
+      {iconAfter}
     </div>
   );
 };
