@@ -1,1 +1,1 @@
-export { Tip } from './icons';
+export { Tip, Search, Question } from './icons';
