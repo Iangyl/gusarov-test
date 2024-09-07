@@ -1,5 +1,8 @@
 import { Tip } from '../../assets';
+import { Tooltip } from '../../components';
+import { useTooltipPosition } from '../../hooks';
 import { fontSize } from '../../styles';
+import { TooltipWrapper } from '../TooltipWrapper';
 import { ILabelContainer } from './LabelContainer.types';
 import classNames from 'classnames';
 
@@ -15,6 +18,8 @@ const LabelContainer = ({
   size = 'm',
   labelPosition = 'above',
 }: ILabelContainer) => {
+  const { tooltipPosition, isTooltipVisible, showTooltip, hideTooltip } =
+    useTooltipPosition();
   return (
     <div
       className={classNames(
@@ -37,7 +42,17 @@ const LabelContainer = ({
           {label}
           {required && <span className="text-sunset-ember"> *</span>}
         </label>
-        {tip && <Tip className="cursor-pointer" />}
+        {tip && (
+          <div
+            onMouseEnter={(event) =>
+              showTooltip(event as unknown as MouseEvent)
+            }
+            onMouseMove={(event) => showTooltip(event as unknown as MouseEvent)}
+            onMouseLeave={hideTooltip}
+          >
+            <Tip className="cursor-pointer" />
+          </div>
+        )}
       </div>
       {children}
       {(hint || error) && (
@@ -50,6 +65,17 @@ const LabelContainer = ({
         >
           {error || hint}
         </p>
+      )}
+      {isTooltipVisible && tip && (
+        <Tooltip
+          tip={tip}
+          style={{
+            position: 'fixed',
+            top: tooltipPosition.y - 50,
+            left: tooltipPosition.x - 55,
+            zIndex: 1000,
+          }}
+        />
       )}
     </div>
   );

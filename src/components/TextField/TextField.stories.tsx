@@ -39,7 +39,7 @@ const args = {
   id: 'email',
   name: 'email',
   placeholder: 'john.dou@gmail.com',
-  tip: 'This is a little tip that explain you this field',
+  tip: 'This is a tooltip.',
   label: 'Email',
   labelPosition: 'above',
   size: 'm',

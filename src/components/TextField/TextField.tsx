@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import { ITextField } from './TextField.types';
 import { textFieldStyleConfig } from './index.config';
-import { InputContainer } from '../../atoms';
-import LabelContainer from '../../atoms/LabelContainer/LabelContainer';
+import { InputContainer, LabelContainer } from '../../atoms';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 const TextField = ({
