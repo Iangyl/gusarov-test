@@ -12,5 +12,5 @@ Currently, two official plugins are available:
 I make icons separate textfield components, because this approach more flexible and give ability to change icons and control them.
 So that's why you can observe that color of icons does not change when you clear `error` message. Because they controlled by parent element/component.
 
-![error]([http://url/to/img.png](https://github.com/Iangyl/gusarov-test/blob/main/DESCRIBE/error.png))
-![error disappear]([http://url/to/img.png](https://github.com/Iangyl/gusarov-test/blob/main/DESCRIBE/not-error.png))
+![error](https://github.com/Iangyl/gusarov-test/blob/main/DESCRIBE/error.png)
+![error disappear](https://github.com/Iangyl/gusarov-test/blob/main/DESCRIBE/not-error.png)
